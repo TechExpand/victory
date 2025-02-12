@@ -1,12 +1,13 @@
 let noButtonDodgeCount = 0;
 const maxDodges = 200000;
 
-function nextQuestion(accepted, questionNumber) {
+function nextQuestion(accepted, questionNumber, last) {
     if (accepted) {
         document.querySelector(`#q${questionNumber}`).classList.remove('active');
-        if (questionNumber < 3) {
+        if (questionNumber < 3 && !last) {
             document.querySelector(`#q${questionNumber + 1}`).classList.add('active');
         } else {
+            console.log(questionNumber)
             document.querySelector('#final').classList.add('active');
             celebrateAcceptance();
         }
